@@ -1,0 +1,22 @@
+docker exec --workdir /opt/kafka/bin/ -it broker sh
+
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic quickstart-events
+./kafka-topics.sh --describe --topic quickstart-events --bootstrap-server localhost:9092
+./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic quickstart-events
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic quickstart-events --from-beginning
+
+./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test-topic
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test-topic --from-beginning
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic message-topic
+./kafka-topics.sh --describe --topic message-topic --bootstrap-server localhost:9092
+./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic message-topic
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic message-topic --from-beginning
+
+
+
+./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic greeting-topic
+./kafka-topics.sh --describe --topic greeting-topic --bootstrap-server localhost:9092
+./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic greeting-topic
+./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic greeting-topic --from-beginning
